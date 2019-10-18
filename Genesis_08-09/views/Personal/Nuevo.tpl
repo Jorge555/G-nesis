@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Nuevo Personal</title>
+    </head>
+    <body>
+     
+        <div class="container" >
+            <div class="row">
+                <div class=" col-md-3">
+                </div>
+                <div class=" col-md-6" id="tb" >
+                   <h3>Nuevo Personal</h3>
+                    <form role="form" id="Personal" method="POST" >
+                        <input type="hidden" name="op" value="insertar"/>
+                        <div class="well well-sm"><strong><span class="glyphicon glyphicon-asterisk"></span>Campos requeridos</strong></div>
+
+                        <div class="form-group">
+                            <label>Nombre</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control"name="nombre" id="nombre" >
+                                <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Apellido</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control" name="apellido" id="apellido">
+                                <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                           <label>Sexo</label>
+                            <div class="input-group">
+                             <select class="form-control" name="sexo" id="sexo">
+                                <option value="0">Mujer</option>
+                                <option value="1">Hombre</option>
+                                </select>
+                                <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                          <label>Distrito</label>
+                          <div class="input-group">
+                            <select class="form-control" name="distrito" id="distrito">
+                              {foreach from=$Distrito item=dato1}
+                              <option value="{$dato1.ID}">{$dato1.DISTRITO}</option>
+                              {/foreach}
+                            </select>
+                            <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label>Puesto</label>
+                          <div class="input-group">
+                            <select class="form-control" name="puesto" id="puesto">
+                              {foreach from=$Puesto item=dato2}
+                              <option value="{$dato2.ID}">{$dato2.PUESTO}</option>
+                              {/foreach}
+                            </select>
+                            <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
+                          </div>
+                        </div>
+
+                        <div class="form-group">
+                          <label>Activo</label>
+                          <div class="input-group">
+                            <input type="radio" name="activo" id="activo" value="1" checked="true">Si <input type="radio" name="activo" id="activo" value="0">No
+                          </div>
+                        </div>
+
+                       <input type="submit" class="btn btn-info" value="Guardar" name="Guardar">
+                       <a class="btn btn-danger" href="index.php?accion=Personal/Lista">Cancelar</a>
+
+                    </form>
+                     {$Mensaje}
+                </div>
+ 
+        </div>
+    </body>
+</html>
